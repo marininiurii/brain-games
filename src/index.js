@@ -11,7 +11,7 @@ function index(description, game) {
     const [expression, expressionCheck] = game();
     console.log(`Question: ${expression}`);
     const answer = readlineSync.question('Your answer: ');
-    if (expressionCheck === answer.toString()) {
+    if (expressionCheck.toString() === answer.toString()) {
       console.log('Correct');
       countCorrectAnswer += 1;
     } else {
