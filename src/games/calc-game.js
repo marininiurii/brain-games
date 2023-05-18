@@ -16,4 +16,4 @@ function calcGame() {
   return [expression, correctAnswer.toString()];
 }
 
-export { calcGame };
+export default calcGame;

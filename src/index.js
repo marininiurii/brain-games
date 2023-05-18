@@ -24,4 +24,4 @@ function index(description, game) {
   }
 }
 
-export { index };
+export default index;

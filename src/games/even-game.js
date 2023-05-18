@@ -11,4 +11,4 @@ function evenGame() {
   }
   return [randomNumber, correctAnswer];
 }
-export { evenGame };
+export default evenGame;
