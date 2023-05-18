@@ -4,4 +4,5 @@
 [asciinema for brain-game Even](https://asciinema.org/a/c4827fWgu8pTAFXfusPiES1zF) 
 [asciinema for brain-game Calc](https://asciinema.org/a/st81vPoQnZmvkLPl10uDtTiwu)
 [asciinema for brain-game GCD](https://asciinema.org/a/OYRgulmZbzShRcIJ7dwMgHL1Q)
+[![asciicast](https://asciinema.org/a/c4827fWgu8pTAFXfusPiES1zF.svg)](https://asciinema.org/a/c4827fWgu8pTAFXfusPiES1zF)
 
