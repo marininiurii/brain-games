@@ -5,5 +5,5 @@
 [asciinema for brain-game Calc](https://asciinema.org/a/st81vPoQnZmvkLPl10uDtTiwu)
 [asciinema for brain-game GCD](https://asciinema.org/a/OYRgulmZbzShRcIJ7dwMgHL1Q)
 [asciinema for brain-game Progression](https://asciinema.org/a/rZJzWBCt5rTIfnDsDF7Ar3omO)
-
+<p><a href="https://asciinema.org/a/rZJzWBCt5rTIfnDsDF7Ar3omO">brain-progression</a></p>
 
