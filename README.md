@@ -1,8 +1,8 @@
-<h1>Terminal games: Brain Games</h1>
-<hr>
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/marininiurii/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/marininiurii/frontend-project-44/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d8201c52f97274ed9f66/maintainability)](https://codeclimate.com/github/marininiurii/frontend-project-44/maintainability)
+<h1>Terminal games: Brain Games</h1>
+<hr>
 <h3>Setup</h3>
 <hr>
 [make install]
