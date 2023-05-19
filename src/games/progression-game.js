@@ -1,6 +1,8 @@
-function progressionGame() {
-  const getRandom = () => Math.floor(Math.random() * 100);
-  const getRandomStep = () => Math.floor(Math.random() * 10) + 1;
+import index from '../index.js';
+
+function runProgressionGame() {
+  const getRandom = () => Math.floor(Math.random() * 100) + 1;
+  const getRandomStep = () => Math.floor(Math.random() * 5) + 1;
   let firstDigit = getRandom();
   const getStep = getRandomStep();
   const result = [];
@@ -16,4 +18,8 @@ function progressionGame() {
   const expressionCheck = getIndexRandom;
   return [expression, expressionCheck];
 }
-export default progressionGame;
+export default runProgressionGame;
+
+const description = 'What number is missing in the progression?';
+
+index(description, runProgressionGame);

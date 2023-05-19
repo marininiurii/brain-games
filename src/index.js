@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import readlineSync from 'readline-sync';
 
 function index(description, game) {

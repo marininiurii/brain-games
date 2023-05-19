@@ -1,5 +1,7 @@
-function calcGame() {
-  const getRandom = () => Math.floor(Math.random() * 100);
+import index from '../index.js';
+
+function runCalcGame() {
+  const getRandom = () => Math.floor(Math.random() * 100) + 1;
   const randomChars = (operators = '+-*') => operators[Math.floor(Math.random() * operators.length)];
   let correctAnswer = '';
   const randomChar = randomChars();
@@ -16,4 +18,8 @@ function calcGame() {
   return [expression, correctAnswer.toString()];
 }
 
-export default calcGame;
+export default runCalcGame;
+
+const description = 'What is the result of the expression?';
+
+index(description, runCalcGame);

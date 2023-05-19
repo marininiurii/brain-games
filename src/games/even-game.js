@@ -1,6 +1,7 @@
-/* eslint-disable no-console */
-function evenGame() {
-  const getRandom = Math.floor(Math.random() * 100);
+import index from '../index.js';
+
+function runEvenGame() {
+  const getRandom = Math.floor(Math.random() * 100) + 1;
   const randomNumber = getRandom;
   let correctAnswer = '';
   if (randomNumber % 2 === 0) {
@@ -11,4 +12,8 @@ function evenGame() {
   }
   return [randomNumber, correctAnswer];
 }
-export default evenGame;
+export default runEvenGame;
+
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+index(description, runEvenGame);

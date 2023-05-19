@@ -1,17 +1,21 @@
-function primeGame() {
-  const getRandom = () => Math.floor(Math.random() * 271) + 1;
-  const isPrime = getRandom();
+import index from '../index.js';
+
+function runPrimeGame() {
+  const getRandom = () => Math.floor(Math.random() * 100) + 1;
+  const expression = getRandom();
   let expressionCheck = '';
-  const primeDigits = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,
-    47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113,
-    127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193,
-    197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271];
-  const expression = isPrime;
-  if (primeDigits.includes(expression)) {
-    expressionCheck = 'yes';
-  } else {
-    expressionCheck = 'no';
+  for (let i = 2; i <= expression / 2; i += 1) {
+    if (expression % i === 0) {
+      expressionCheck = 'no';
+    } else {
+      expressionCheck = 'yes';
+    }
   }
   return [expression, expressionCheck];
 }
-export default primeGame;
+
+export default runPrimeGame;
+
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+index(description, runPrimeGame);
