@@ -20,7 +20,7 @@ const getGCD = (digitOne, digitTwo) => {
 const runGcdGame = () => {
   const digitOne = getRandom();
   const digitTwo = getRandom();
-  const expression = `${digitOne}  ${digitTwo}`;
+  const expression = `${digitOne} ${digitTwo}`;
   const expressionCheck = getGCD(digitOne, digitTwo);
   return [expression, expressionCheck.toString()];
 };
