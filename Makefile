@@ -1,6 +1,9 @@
 install:
 	npm ci
 
+brain-even:
+	node bin/brain-even.js
+
 brain-prime:
 	node bin/brain-prime.js
 

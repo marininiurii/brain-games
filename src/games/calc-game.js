@@ -1,25 +1,31 @@
-import index from '../index.js';
+import runGamesLogic from '../index.js';
 
-function runCalcGame() {
-  const getRandom = () => Math.floor(Math.random() * 100) + 1;
-  const randomChars = (operators = '+-*') => operators[Math.floor(Math.random() * operators.length)];
-  let correctAnswer = '';
-  const randomChar = randomChars();
-  const firstDigit = getRandom();
-  const secondDigit = getRandom();
-  const expression = `${firstDigit} ${randomChar} ${secondDigit}`;
-  if (randomChar === '+') {
-    correctAnswer = firstDigit + secondDigit;
-  } else if (randomChar === '-') {
-    correctAnswer = firstDigit - secondDigit;
-  } else if (randomChar === '*') {
-    correctAnswer = firstDigit * secondDigit;
-  }
-  return [expression, correctAnswer.toString()];
-}
-
-export default runCalcGame;
+import getRandom from '../utilities.js';
 
 const description = 'What is the result of the expression?';
 
-index(description, runCalcGame);
+const getRandomChars = (operators = '+-*') => operators[Math.floor(Math.random() * operators.length)];
+
+const getCorrectAnswer = (firstDigit, secondDigit, randomChar) => {
+  let answer;
+  if (randomChar === '+') {
+    answer = firstDigit + secondDigit;
+  } else if (randomChar === '-') {
+    answer = firstDigit - secondDigit;
+  } else if (randomChar === '*') {
+    answer = firstDigit * secondDigit;
+  }
+  return answer;
+};
+
+const runCalcGame = () => {
+  const randomChar = getRandomChars();
+  const firstDigit = getRandom();
+  const secondDigit = getRandom();
+
+  const correctAnswer = getCorrectAnswer(firstDigit, secondDigit, randomChar);
+  const expression = `${firstDigit} ${randomChar} ${secondDigit}`;
+  return [expression, correctAnswer.toString()];
+};
+
+export default () => runGamesLogic(description, runCalcGame);

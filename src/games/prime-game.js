@@ -1,6 +1,10 @@
-import index from '../index.js';
+import runGamesLogic from '../index.js';
 
-function isPrime(num) {
+import getRandom from '../utilities.js';
+
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
@@ -10,18 +14,12 @@ function isPrime(num) {
     }
   }
   return true;
-}
+};
 
-function runPrimeGame() {
-  const getRandom = () => Math.floor(Math.random() * 100) + 1;
+const runPrimeGame = () => {
   const expression = getRandom();
-  let expressionCheck = '';
-  expressionCheck = isPrime(expression) ? 'yes' : 'no';
-  return [expression, expressionCheck];
-}
+  const expressionCheck = isPrime(expression) ? 'yes' : 'no';
+  return [expression, expressionCheck.toString()];
+};
 
-export default runPrimeGame;
-
-const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-
-index(description, runPrimeGame);
+export default () => runGamesLogic(description, runPrimeGame);

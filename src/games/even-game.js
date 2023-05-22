@@ -1,19 +1,15 @@
-import index from '../index.js';
+import runGamesLogic from '../index.js';
 
-function runEvenGame() {
-  const getRandom = Math.floor(Math.random() * 100) + 1;
-  const randomNumber = getRandom;
-  let correctAnswer = '';
-  if (randomNumber % 2 === 0) {
-    correctAnswer = 'yes';
-  }
-  if (randomNumber % 2 !== 0) {
-    correctAnswer = 'no';
-  }
-  return [randomNumber, correctAnswer];
-}
-export default runEvenGame;
+import getRandom from '../utilities.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-index(description, runEvenGame);
+const isEven = (randomNumber) => randomNumber % 2 === 0;
+
+const runEvenGame = () => {
+  const randomNumber = getRandom();
+  const correctAnswer = isEven(randomNumber) ? 'yes' : 'no';
+  return [randomNumber, correctAnswer.toString()];
+};
+
+export default () => runGamesLogic(description, runEvenGame);

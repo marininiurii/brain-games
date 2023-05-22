@@ -18,7 +18,7 @@ Brain-games are five mini-games that develop mathematical and logical thinking. 
 
 ## Minimum system requirements:
 
-Node.js, Terminal 
+Node.js version 14.15 and higher, Terminal 
 
 ## Setup & start
 

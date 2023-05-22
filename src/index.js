@@ -1,26 +1,22 @@
 import readlineSync from 'readline-sync';
 
-function index(description, game) {
+const runGamesLogic = (description, getGameLogic) => {
   console.log('Welcome to the Brain Games!');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(description);
-  let countCorrectAnswer = 0;
   for (let i = 0; i < 3; i += 1) {
-    const [expression, expressionCheck] = game();
+    const [expression, expressionCheck] = getGameLogic();
     console.log(`Question: ${expression}`);
     const answer = readlineSync.question('Your answer: ');
-    if (expressionCheck.toString() === answer.toString()) {
+    if (expressionCheck === answer) {
       console.log('Correct');
-      countCorrectAnswer += 1;
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${expressionCheck}\nLet's try again, ${userName}!`);
-      break;
+      return;
     }
   }
-  if (countCorrectAnswer === 3) {
-    console.log(`Congratulations, ${userName}!`);
-  }
-}
+  console.log(`Congratulations, ${userName}!`);
+};
 
-export default index;
+export default runGamesLogic;

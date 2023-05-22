@@ -1,10 +1,12 @@
-import index from '../index.js';
+import runGamesLogic from '../index.js';
 
-function runGcdGame() {
-  const getRandom = () => Math.floor(Math.random() * 100) + 1;
-  let firstDigit = getRandom();
-  let secondDigit = getRandom();
-  const expression = `${firstDigit} ${secondDigit}`;
+import getRandom from '../utilities.js';
+
+const description = 'Find the greatest common divisor of given numbers.';
+
+const getGCD = (digitOne, digitTwo) => {
+  let firstDigit = digitOne;
+  let secondDigit = digitTwo;
   while (firstDigit !== 0 && secondDigit !== 0) {
     if (firstDigit > secondDigit) {
       firstDigit %= secondDigit;
@@ -12,11 +14,15 @@ function runGcdGame() {
       secondDigit %= firstDigit;
     }
   }
-  const expressionCheck = secondDigit + firstDigit;
+  return firstDigit + secondDigit;
+};
+
+const runGcdGame = () => {
+  const digitOne = getRandom();
+  const digitTwo = getRandom();
+  const expression = `${digitOne}  ${digitTwo}`;
+  const expressionCheck = getGCD(digitOne, digitTwo);
   return [expression, expressionCheck.toString()];
-}
-export default runGcdGame;
+};
 
-const description = 'Find the greatest common divisor of given numbers.';
-
-index(description, runGcdGame);
+export default () => runGamesLogic(description, runGcdGame);
