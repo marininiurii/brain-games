@@ -4,26 +4,24 @@ import getRandom from '../utilities.js';
 
 const description = 'What number is missing in the progression?';
 
-const getRandomStep = () => Math.floor(Math.random() * 10) + 1;
-
-const getProgression = () => {
-  let firstDigit = getRandom();
-  const getStep = getRandomStep();
+const getProgression = (firstDigit, getStep) => {
+  let digit = firstDigit;
   const result = [];
-  let count = 0;
-  while (count < 11) {
-    result.push(firstDigit);
-    firstDigit += getStep;
-    count += 1;
+  for (let i = 0; i < 10; i += 1) {
+    result.push(digit);
+    digit += getStep;
   }
   return result;
 };
 
 const runProgressionGame = () => {
-  const progression = getProgression();
-  const getIndexRandom = progression[Math.floor(Math.random() * progression.length)];
-  const expression = progression.join(' ').replace(getIndexRandom, '..');
-  const expressionCheck = getIndexRandom;
+  const firstDigit = getRandom(1, 100);
+  const getStep = getRandom(1, 10);
+  const progression = getProgression(firstDigit, getStep);
+  const randomIndex = getRandom(0, 9);
+  const expressionCheck = progression[randomIndex];
+  progression[randomIndex] = '..';
+  const expression = progression.join(' ');
   return [expression, expressionCheck.toString()];
 };
 

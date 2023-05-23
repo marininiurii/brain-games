@@ -4,27 +4,32 @@ import getRandom from '../utilities.js';
 
 const description = 'What is the result of the expression?';
 
-const getRandomChars = (operators = '+-*') => operators[Math.floor(Math.random() * operators.length)];
-
-const getCorrectAnswer = (firstDigit, secondDigit, randomChar) => {
+const getCorrectAnswer = (firstDigit, secondDigit, randomOperator) => {
   let answer;
-  if (randomChar === '+') {
-    answer = firstDigit + secondDigit;
-  } else if (randomChar === '-') {
-    answer = firstDigit - secondDigit;
-  } else if (randomChar === '*') {
-    answer = firstDigit * secondDigit;
+  switch (randomOperator) {
+    case '+':
+      answer = firstDigit + secondDigit;
+      break;
+    case '-':
+      answer = firstDigit - secondDigit;
+      break;
+    case '*':
+      answer = firstDigit * secondDigit;
+      break;
+    default:
+      throw new Error(`Unknown operator: '${randomOperator}'!`);
   }
   return answer;
 };
 
 const runCalcGame = () => {
-  const randomChar = getRandomChars();
-  const firstDigit = getRandom();
-  const secondDigit = getRandom();
+  const operators = ['+', '-', '*'];
+  const randomOperator = operators[getRandom(0, 2)];
+  const firstDigit = getRandom(1, 100);
+  const secondDigit = getRandom(1, 100);
 
-  const correctAnswer = getCorrectAnswer(firstDigit, secondDigit, randomChar);
-  const expression = `${firstDigit} ${randomChar} ${secondDigit}`;
+  const correctAnswer = getCorrectAnswer(firstDigit, secondDigit, randomOperator);
+  const expression = `${firstDigit} ${randomOperator} ${secondDigit}`;
   return [expression, correctAnswer.toString()];
 };
 

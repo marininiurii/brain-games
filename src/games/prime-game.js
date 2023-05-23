@@ -17,7 +17,7 @@ const isPrime = (num) => {
 };
 
 const runPrimeGame = () => {
-  const expression = getRandom();
+  const expression = getRandom(1, 100);
   const expressionCheck = isPrime(expression) ? 'yes' : 'no';
   return [expression, expressionCheck.toString()];
 };
