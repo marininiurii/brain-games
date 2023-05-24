@@ -3,11 +3,15 @@ import runGamesLogic from '../index.js';
 import getRandom from '../utilities.js';
 
 const description = 'What number is missing in the progression?';
+const minRandomDigit = 1;
+const maxRandomDigit = 100;
+const maxRandomDigitStep = 10;
+const progressionLength = 10;
 
 const getProgression = (firstDigit, getStep) => {
   let digit = firstDigit;
   const result = [];
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     result.push(digit);
     digit += getStep;
   }
@@ -15,10 +19,10 @@ const getProgression = (firstDigit, getStep) => {
 };
 
 const runProgressionGame = () => {
-  const firstDigit = getRandom(1, 100);
-  const getStep = getRandom(1, 10);
-  const progression = getProgression(firstDigit, getStep);
-  const randomIndex = getRandom(0, 9);
+  const firstDigit = getRandom(minRandomDigit, maxRandomDigit);
+  const randomStep = getRandom(minRandomDigit, maxRandomDigitStep);
+  const progression = getProgression(firstDigit, randomStep);
+  const randomIndex = getRandom(0, progression.length - 1);
   const expressionCheck = progression[randomIndex];
   progression[randomIndex] = '..';
   const expression = progression.join(' ');

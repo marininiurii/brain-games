@@ -3,6 +3,8 @@ import runGamesLogic from '../index.js';
 import getRandom from '../utilities.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
+const minRandomDigit = 1;
+const maxRandomDigit = 100;
 
 const getGCD = (digitOne, digitTwo) => {
   let firstDigit = digitOne;
@@ -18,8 +20,8 @@ const getGCD = (digitOne, digitTwo) => {
 };
 
 const runGcdGame = () => {
-  const digitOne = getRandom(1, 100);
-  const digitTwo = getRandom(1, 100);
+  const digitOne = getRandom(minRandomDigit, maxRandomDigit);
+  const digitTwo = getRandom(minRandomDigit, maxRandomDigit);
   const expression = `${digitOne} ${digitTwo}`;
   const expressionCheck = getGCD(digitOne, digitTwo);
   return [expression, expressionCheck.toString()];

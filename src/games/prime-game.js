@@ -3,6 +3,8 @@ import runGamesLogic from '../index.js';
 import getRandom from '../utilities.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const minRandomDigit = 1;
+const maxRandomDigit = 100;
 
 const isPrime = (num) => {
   if (num < 2) {
@@ -17,7 +19,7 @@ const isPrime = (num) => {
 };
 
 const runPrimeGame = () => {
-  const expression = getRandom(1, 100);
+  const expression = getRandom(minRandomDigit, maxRandomDigit);
   const expressionCheck = isPrime(expression) ? 'yes' : 'no';
   return [expression, expressionCheck.toString()];
 };

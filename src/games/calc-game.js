@@ -3,32 +3,29 @@ import runGamesLogic from '../index.js';
 import getRandom from '../utilities.js';
 
 const description = 'What is the result of the expression?';
+const operators = ['+', '-', '*'];
+const minRandomDigit = 1;
+const maxRandomDigit = 100;
 
-const getCorrectAnswer = (firstDigit, secondDigit, randomOperator) => {
-  let answer;
+const calculateCorrectAnswer = (firstDigit, secondDigit, randomOperator) => {
   switch (randomOperator) {
     case '+':
-      answer = firstDigit + secondDigit;
-      break;
+      return firstDigit + secondDigit;
     case '-':
-      answer = firstDigit - secondDigit;
-      break;
+      return firstDigit - secondDigit;
     case '*':
-      answer = firstDigit * secondDigit;
-      break;
+      return firstDigit * secondDigit;
     default:
       throw new Error(`Unknown operator: '${randomOperator}'!`);
   }
-  return answer;
 };
 
 const runCalcGame = () => {
-  const operators = ['+', '-', '*'];
-  const randomOperator = operators[getRandom(0, 2)];
-  const firstDigit = getRandom(1, 100);
-  const secondDigit = getRandom(1, 100);
+  const randomOperator = operators[getRandom(0, operators.length - 1)];
+  const firstDigit = getRandom(minRandomDigit, maxRandomDigit);
+  const secondDigit = getRandom(minRandomDigit, maxRandomDigit);
 
-  const correctAnswer = getCorrectAnswer(firstDigit, secondDigit, randomOperator);
+  const correctAnswer = calculateCorrectAnswer(firstDigit, secondDigit, randomOperator);
   const expression = `${firstDigit} ${randomOperator} ${secondDigit}`;
   return [expression, correctAnswer.toString()];
 };
